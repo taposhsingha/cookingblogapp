@@ -11,7 +11,7 @@ const Register = () => {
             <div className="mt-5 w-4/12 h-[520px] bg-black rounded-md">
               <img
                 className="w-full h-full object-fill opacity-70 rounded-md"
-                src="https://images.pexels.com/photos/2284166/pexels-photo-2284166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/954677/pexels-photo-954677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt=""
               />
             </div>
