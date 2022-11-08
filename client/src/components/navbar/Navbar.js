@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center bg-gray-200">
       <div className="mt-5 w-11/12 flex justify-between">
         <div className="flex items-center cursor-pointer">
           <img
@@ -17,9 +17,12 @@ const Navbar = () => {
         <div className="space-x-5 mt-7">
           <input
             type="text"
-            className=" bg-gray-200 p-2 outline-none"
+            className="border-2  border-gray-400 p-2 outline-none rounded-md"
             placeholder="search for recipes..."
           />
+          <button className="bt-style bg-purple-500 hover:bg-purple-700">
+            Search
+          </button>
           <button className="bt-style bg-blue-500 hover:bg-blue-700">
             Why Join ?
           </button>
