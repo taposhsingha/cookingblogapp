@@ -22,7 +22,7 @@ const Login = () => {
                   <h1 className="font-bold font-sans text-[20px]">
                     Enter Username
                   </h1>
-                  <input className="outline-none border-gray-300 bg-transparent bg-gray-200 p-2 lg:w-10/12" />
+                  <input className="outline-none border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12" />
                 </div>
                 <div className="space-y-3 mt-3">
                   <h1 className="font-bold font-sans text-[20px]">
@@ -30,7 +30,7 @@ const Login = () => {
                   </h1>
                   <input
                     type="password"
-                    className="outline-none border-gray-300 bg-transparent bg-gray-200 p-2 lg:w-10/12"
+                    className="outline-none border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12"
                   />
                 </div>
                 <div className="mt-6 w-10/12 flex justify-evenly">

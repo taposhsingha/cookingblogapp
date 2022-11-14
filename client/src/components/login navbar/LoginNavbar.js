@@ -1,6 +1,10 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const LoginNavbar = () => {
+  const navigate = useNavigate();
+  const navigatetoregister = () => {
+    navigate("/register");
+  };
   return (
     <div className="flex justify-center ">
       <div className="mt-5 w-11/12 flex justify-between">
@@ -16,7 +20,10 @@ const LoginNavbar = () => {
           <button className="bt-style bg-blue-500 hover:bg-blue-700">
             Why Join ?
           </button>
-          <button className="bt-style bg-blue-500 hover:bg-blue-700">
+          <button
+            className="bt-style bg-blue-500 hover:bg-blue-700"
+            onClick={navigatetoregister}
+          >
             Register
           </button>
           <button className="bt-style bg-blue-500 hover:bg-blue-700">
