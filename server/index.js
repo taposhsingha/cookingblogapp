@@ -30,14 +30,15 @@ app.post("/blogs", (req, res) => {
     req.body.user_id,
   ];
   db.query(q, [values], (err, data) => {
-    return res.json(data);
+    if (err) return res.json(err);
+    return res.send(data);
   });
 });
 
 app.get("/blogs", (req, res) => {
   const q = "SELECT * FROM blogs";
   db.query(q, (err, data) => {
-    return res.json(data);
+    res.send(data);
   });
 });
 

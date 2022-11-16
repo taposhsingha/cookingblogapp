@@ -33,7 +33,10 @@ const Blog = ({ blog }) => {
             <h1 className="text-[24px] font-sans font-semibold">
               {blog.blog_name}
             </h1>
-            <h1>{blog.blog_desc}</h1>
+            <div className="flex">
+              <h1 className="overflow-hidden">{blog.blog_desc}</h1>
+              <h1>...</h1>
+            </div>
             <div className="flex justify-between">
               <h1>{blog.blog_author}</h1>
               <h1 className="text-gray-400 text-[14px]">
