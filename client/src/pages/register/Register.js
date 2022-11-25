@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import RegisterNavbar from "../../components/register navbar/RegisterNavbar";
+import axios from "axios";
 
 const Register = () => {
+  const [inputs, setInputs] = useState({
+    user_name: "",
+    user_email: "",
+    user_password: "",
+    user_desc: "",
+    user_img: "",
+  });
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "http://localhost:8800/api/auth/register",
+        inputs
+      );
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div>
       <div>
@@ -22,13 +47,21 @@ const Register = () => {
                   <h1 className="font-bold font-sans text-[20px]">
                     Enter Username
                   </h1>
-                  <input className="outline-none border-gray-300 bg-transparent bg-blue-200 p-2 w-10/12 rounded-md" />
+                  <input
+                    className="outline-none border-b-2 focus:bg-blue-300 border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12 "
+                    onChange={handleChange}
+                    name="user_name"
+                  />
                 </div>
                 <div className="space-y-3 mt-3">
                   <h1 className="font-bold font-sans text-[20px]">
                     Enter E-mail
                   </h1>
-                  <input className=" border-gray-300 bg-transparent bg-blue-200 p-2 w-10/12 rounded-md" />
+                  <input
+                    className="outline-none border-b-2 focus:bg-blue-300 border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12 "
+                    name="user_email"
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="space-y-3 mt-3">
                   <h1 className="font-bold font-sans text-[20px]">
@@ -36,11 +69,16 @@ const Register = () => {
                   </h1>
                   <input
                     type="password"
-                    className="outline-none border-gray-300 bg-transparent bg-blue-200 p-2 w-10/12 rounded-md"
+                    name="user_password"
+                    className="outline-none border-b-2 focus:bg-blue-300 border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12 "
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mt-6 w-10/12 flex justify-evenly">
-                  <button className="bt-style bg-blue-500 hover:bg-blue-700">
+                  <button
+                    className="bt-style bg-blue-500 hover:bg-blue-700"
+                    onClick={handleSubmit}
+                  >
                     Register
                   </button>
                   <button className="bt-style bg-blue-500 hover:bg-blue-700">

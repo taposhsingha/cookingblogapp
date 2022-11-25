@@ -1,7 +1,32 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import LoginNavbar from "../../components/login navbar/LoginNavbar";
 
 const Login = () => {
+  const [inputs, setInputs] = useState({
+    user_name: "",
+    user_email: "",
+    user_password: "",
+    user_desc: "",
+    user_img: "",
+  });
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "http://localhost:8800/api/auth/register",
+        inputs
+      );
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div>
       <div>
@@ -22,7 +47,7 @@ const Login = () => {
                   <h1 className="font-bold font-sans text-[20px]">
                     Enter Username
                   </h1>
-                  <input className="outline-none border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12" />
+                  <input className="outline-none border-b-2 focus:bg-blue-300 border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12 " />
                 </div>
                 <div className="space-y-3 mt-3">
                   <h1 className="font-bold font-sans text-[20px]">
@@ -30,7 +55,7 @@ const Login = () => {
                   </h1>
                   <input
                     type="password"
-                    className="outline-none border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12"
+                    className="outline-none border-b-2 focus:bg-blue-300 border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12 "
                   />
                 </div>
                 <div className="mt-6 w-10/12 flex justify-evenly">
