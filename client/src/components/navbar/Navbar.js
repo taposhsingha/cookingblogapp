@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 
 const Navbar = () => {
-  const { currentUser, Logout } = useContext(AuthContext);
+  const { currentUser, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const navigatetohome = () => {
     navigate("/");
@@ -67,7 +67,7 @@ const Navbar = () => {
           </button>
           <button className="bt-style bg-blue-500 hover:bg-blue-700">
             {currentUser ? (
-              <span>Logout</span>
+              <span onClick={logout}>Logout</span>
             ) : (
               <Link className="link" to="/login">
                 Login
