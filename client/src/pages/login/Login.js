@@ -1,6 +1,7 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import LoginNavbar from "../../components/login navbar/LoginNavbar";
+import { AuthContext } from "../../context/authContext";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -11,6 +12,10 @@ const Login = () => {
     user_img: "",
   });
 
+  const navigate = useNavigate();
+
+  const { login } = useContext(AuthContext);
+
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -18,11 +23,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:8800/api/auth/register",
-        inputs
-      );
-      console.log(res);
+      await login(inputs);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -47,7 +49,12 @@ const Login = () => {
                   <h1 className="font-bold font-sans text-[20px]">
                     Enter Username
                   </h1>
-                  <input className="outline-none border-b-2 focus:bg-blue-300 border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12 " />
+                  <input
+                    type="text"
+                    name="user_name"
+                    className="outline-none border-b-2 focus:bg-blue-300 border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12 "
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="space-y-3 mt-3">
                   <h1 className="font-bold font-sans text-[20px]">
@@ -55,11 +62,16 @@ const Login = () => {
                   </h1>
                   <input
                     type="password"
+                    name="user_password"
+                    onChange={handleChange}
                     className="outline-none border-b-2 focus:bg-blue-300 border-gray-300 bg-transparent bg-blue-200 p-2 lg:w-10/12 "
                   />
                 </div>
                 <div className="mt-6 w-10/12 flex justify-evenly">
-                  <button className="bt-style bg-blue-500 hover:bg-blue-700">
+                  <button
+                    className="bt-style bg-blue-500 hover:bg-blue-700"
+                    onClick={handleSubmit}
+                  >
                     Login
                   </button>
                   <button className="bt-style bg-blue-500 hover:bg-blue-700">

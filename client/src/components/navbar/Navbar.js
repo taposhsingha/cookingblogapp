@@ -1,7 +1,9 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
 
 const Navbar = () => {
+  const { currentUser, Logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const navigatetohome = () => {
     navigate("/");
@@ -43,9 +45,7 @@ const Navbar = () => {
           <button className="bt-style bg-purple-500 hover:bg-purple-700">
             Search
           </button>
-          <button className="bt-style bg-blue-500 hover:bg-blue-700">
-            Why Join ?
-          </button>
+
           <button
             className="bt-style bg-blue-500 hover:bg-blue-700"
             onClick={navigatetoregister}
@@ -58,17 +58,21 @@ const Navbar = () => {
           >
             Blogs
           </button>
-          <button className="bt-style bg-blue-500 hover:bg-blue-700">
-            About us
-          </button>
-          <button className="bt-style bg-blue-500 hover:bg-blue-700">
-            Help
-          </button>
+
           <button
             className="bt-style bg-blue-500 hover:bg-blue-700"
             onClick={navigatetoprofile}
           >
-            My Account
+            {currentUser?.user_name}
+          </button>
+          <button className="bt-style bg-blue-500 hover:bg-blue-700">
+            {currentUser ? (
+              <span>Logout</span>
+            ) : (
+              <Link className="link" to="/login">
+                Login
+              </Link>
+            )}
           </button>
         </div>
       </div>
