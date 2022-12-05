@@ -15,7 +15,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchAllBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/blogs");
+        const res = await axios.get("http://localhost:8800/api/blogs");
         setBlogs(res.data);
         console.log(res);
       } catch (err) {
