@@ -23,8 +23,7 @@ const Blog = ({ blog }) => {
               {blog.blog_name}
             </h1>
             <div className="flex">
-              <h1 className="overflow-hidden">{blog.blog_desc}</h1>
-              <h1>...</h1>
+              <h1 className="line-clamp-3">{blog.blog_desc}</h1>
             </div>
             <div className="flex justify-between">
               <h1>{blog.blog_author}</h1>
@@ -32,7 +31,12 @@ const Blog = ({ blog }) => {
                 {blog.blog_created_at}
               </h1>
             </div>
-            <Link to={``}>Read More</Link>
+            <Link
+              className="bt-style bg-blue-600 hover:bg-blue-300 mt-5"
+              to={`/blogs/${blog.blog_id}`}
+            >
+              Read More
+            </Link>
           </div>
         </div>
       </div>

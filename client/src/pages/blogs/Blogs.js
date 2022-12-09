@@ -2,28 +2,31 @@ import React, { useEffect, useState } from "react";
 import BlogCard from "../../components/blogcard/BlogCard";
 import Navbar from "../../components/navbar/Navbar";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
+  const cat = useLocation().search;
 
   const navigatetocreateblog = () => {
     navigate("/createblog");
   };
+  console.log(cat);
 
   useEffect(() => {
     const fetchAllBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/blogs");
+        const res = await axios.get(`http://localhost:8800/api/blogs/${cat}`);
         setBlogs(res.data);
-        console.log(res);
+        console.log(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchAllBlogs();
-  }, []);
+  }, [cat]);
   return (
     <div>
       <Navbar />
