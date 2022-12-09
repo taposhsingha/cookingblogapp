@@ -1,7 +1,7 @@
 import { db } from "../db.js";
 export const getBlogs = (req, res) => {
-  const q = req.query.blog_cat
-    ? "SELECT * FROM blogs WHERE blog_cat?"
+  const q = req.query.cat
+    ? "SELECT * FROM blogs WHERE blog_category=?"
     : "SELECT * FROM blogs";
 
   db.query(q, [req.query.blog_cat], (err, data) => {

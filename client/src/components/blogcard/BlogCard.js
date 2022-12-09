@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Blog = ({ blog }) => {
   return (
@@ -15,19 +16,7 @@ const Blog = ({ blog }) => {
           <div className=" w-11/12 pb-4 space-y-2">
             <div className="w-full flex space-x-2">
               <h1 className="bg-blue-300 p-1 rounded-lg text-[14px] cursor-pointer">
-                DESSERTS
-              </h1>
-              <h1 className="bg-blue-300 p-1 rounded-lg text-[14px] cursor-pointer">
-                FALL
-              </h1>
-              <h1 className="bg-blue-300 p-1 rounded-lg text-[14px] cursor-pointer">
-                RECIPES
-              </h1>
-              <h1 className="bg-blue-300 p-1 rounded-lg text-[14px] cursor-pointer">
-                EASY
-              </h1>
-              <h1 className="bg-blue-300 p-1 rounded-lg text-[14px] cursor-pointer">
-                THANKSGIVING
+                {blog.blog_category}
               </h1>
             </div>
             <h1 className="text-[24px] font-sans font-semibold">
@@ -43,6 +32,7 @@ const Blog = ({ blog }) => {
                 {blog.blog_created_at}
               </h1>
             </div>
+            <Link to={``}>Read More</Link>
           </div>
         </div>
       </div>
