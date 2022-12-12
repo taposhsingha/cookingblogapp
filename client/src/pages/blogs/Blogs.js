@@ -20,7 +20,6 @@ const Blogs = () => {
       try {
         const res = await axios.get(`http://localhost:8800/api/blogs/${cat}`);
         setBlogs(res.data);
-        console.log(res.data);
       } catch (err) {
         console.log(err);
       }

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import moment from "moment";
 import { AuthContext } from "../../context/authContext";
@@ -9,6 +9,7 @@ function SingleBlog() {
   const [blog, setBlog] = useState({});
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const blogId = location.pathname.split("/")[2];
 
@@ -26,6 +27,22 @@ function SingleBlog() {
     };
     fetchData();
   }, [blogId]);
+
+  const handleDelete = async () => {
+    try {
+      const res = await axios.delete(
+        `http://localhost:8800/api/blogs/${blogId}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      );
+      navigate("/blogs");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const handleEdit = () => {};
   return (
     <div>
       <Navbar />
@@ -54,13 +71,13 @@ function SingleBlog() {
             <div className="ml-5 flex space-x-16">
               <Link
                 className="bt-style bg-purple-600 hover:bg-purple-300"
-                to={`/write?edit=2`}
+                onClick={handleEdit}
               >
                 Edit
               </Link>
               <Link
                 className="bt-style bg-orange-600 hover:bg-orange-300"
-                to={`/write?edit=2`}
+                onClick={handleDelete}
               >
                 Delete
               </Link>
