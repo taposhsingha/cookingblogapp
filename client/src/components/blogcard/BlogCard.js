@@ -8,7 +8,7 @@ const Blog = ({ blog }) => {
         <div>
           <img
             className="w-full h-[200px] object-cover rounded-md"
-            src="https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1026&q=80"
+            src={blog.blog_img}
             alt=""
           />
         </div>

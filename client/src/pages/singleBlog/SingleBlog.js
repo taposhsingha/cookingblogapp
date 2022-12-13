@@ -42,7 +42,7 @@ function SingleBlog() {
       console.log(err);
     }
   };
-  const handleEdit = () => {};
+
   return (
     <div>
       <Navbar />
@@ -71,7 +71,8 @@ function SingleBlog() {
             <div className="ml-5 flex space-x-16">
               <Link
                 className="bt-style bg-purple-600 hover:bg-purple-300"
-                onClick={handleEdit}
+                to={`/createblog?edit=2`}
+                state={blog}
               >
                 Edit
               </Link>

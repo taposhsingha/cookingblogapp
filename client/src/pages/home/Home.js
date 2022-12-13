@@ -1,7 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const navigatetoblogs = () => {
+    navigate("/blogs");
+  };
   return (
     <div>
       <Navbar />
@@ -29,10 +34,13 @@ const Home = () => {
                         <div className="text-center">
                           <p className="text-shadow-sm text-blue-500 font-bold text-[38px] text-center">
                             Cook many great dishes
-                            <br /> with these recipes
+                            <br /> with these recipe blogs
                           </p>
-                          <button className="bt-style mt-5 bg-purple-600 hover:bg-purple-800">
-                            Check recipes for friends
+                          <button
+                            className="bt-style mt-5 bg-purple-600 hover:bg-purple-800"
+                            onClick={navigatetoblogs}
+                          >
+                            Check Cooking Blogs
                           </button>
                         </div>
                       </div>

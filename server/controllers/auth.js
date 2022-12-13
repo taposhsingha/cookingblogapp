@@ -44,7 +44,7 @@ export const login = (req, res) => {
     }
     const token = jwt.sign({ id: data[0].user_id }, "jwtkey");
     const { user_password, ...other } = data[0];
-    console.log(other);
+    
     res
       .cookie("access_token", token, {
         httpOnly: true,
@@ -56,10 +56,14 @@ export const login = (req, res) => {
 
 export const logout = (req, res) => {
   res
-    .clearCookie("access_token", {
-      sameSite: "none",
-      secure: true,
-    })
+    .clearCookie(
+      "access_token",
+      { path: "/", domain: "localhost" },
+      {
+        sameSite: "none",
+        secure: true,
+      }
+    )
     .status(200)
     .json("User has been logged out!");
 };
