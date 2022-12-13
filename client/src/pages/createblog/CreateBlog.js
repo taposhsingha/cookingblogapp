@@ -3,10 +3,11 @@ import Navbar from "../../components/navbar/Navbar";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
 
 const CreateBlog = () => {
+  const navigate = useNavigate();
   const state = useLocation().state;
   const [blog_desc, setValue] = useState(state?.blog_desc || "");
   const [blog_name, setTitle] = useState(state?.blog_name || "");
@@ -45,6 +46,7 @@ const CreateBlog = () => {
               credentials: "include",
             }
           );
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
