@@ -69,7 +69,7 @@ function SingleBlog() {
             />
             <div>
               <h1>{blog.user_name}</h1>
-              <h2>posted {moment(blog.date).fromNow()}</h2>
+              <h2>posted {moment(blog.blog_created_at).fromNow()}</h2>
             </div>
           </div>
           {currentUser.user_name === blog.user_name && (
