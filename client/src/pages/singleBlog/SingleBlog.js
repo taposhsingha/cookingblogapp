@@ -14,6 +14,11 @@ function SingleBlog() {
   const blogId = location.pathname.split("/")[2];
 
   const { currentUser } = useContext(AuthContext);
+
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent;
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -85,7 +90,9 @@ function SingleBlog() {
             </div>
           )}
           <div className="w-10/12 ml-5 mt-3">
-            <p className="leading-loose text-justify">{blog.blog_desc}</p>
+            <p className="leading-loose text-justify">
+              {getText(blog.blog_desc)}
+            </p>
           </div>
         </div>
       </div>

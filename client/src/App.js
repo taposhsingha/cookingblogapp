@@ -6,6 +6,7 @@ import Register from "./pages/register/Register";
 import Blogs from "./pages/blogs/Blogs";
 import CreateBlog from "./pages/createblog/CreateBlog";
 import SingleBlog from "./pages/singleBlog/SingleBlog";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/createblog" element={<CreateBlog />} />
         <Route path="/blogs/:id" element={<SingleBlog />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );

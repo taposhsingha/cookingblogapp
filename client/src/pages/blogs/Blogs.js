@@ -33,7 +33,7 @@ const Blogs = () => {
         <h1 className="text-[25px] font-bold">Blog Categories:</h1>
       </div>
       <div className="flex justify-center">
-        <div className="w-10/12 flex space-x-6">
+        <div className=" flex space-x-6">
           <Link className="bt-style bg-blue-600 hover:bg-blue-300" to="/blogs">
             <h2>All</h2>
           </Link>
@@ -67,6 +67,18 @@ const Blogs = () => {
           >
             <h2>Dinner</h2>
           </Link>
+          <Link
+            className="bt-style bg-blue-600 hover:bg-blue-300"
+            to="/blogs/?cat=news"
+          >
+            <h2>News</h2>
+          </Link>
+          <Link
+            className="bt-style bg-blue-600 hover:bg-blue-300"
+            to="/blogs/?cat=other"
+          >
+            <h2>Other</h2>
+          </Link>
         </div>
       </div>
       <div className="w-screen bg-white pb-4">
@@ -76,7 +88,7 @@ const Blogs = () => {
         >
           Create a blog
         </button>
-        <div className="flex space-x-3 mt-2 ml-3">
+        <div className="flex space-x-3 mt-2 ml-3 flex-wrap">
           {blogs.map((blog) => (
             <BlogCard blog={blog} />
           ))}

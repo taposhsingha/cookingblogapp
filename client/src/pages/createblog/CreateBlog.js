@@ -118,6 +118,7 @@ const CreateBlog = () => {
                   />
                   <label>Breakfast</label>
                 </div>
+
                 <div>
                   <input
                     type="radio"
@@ -139,6 +140,28 @@ const CreateBlog = () => {
                     onChange={(e) => setCat(e.target.value)}
                   />
                   <label>Dinner</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="cat"
+                    value="news"
+                    id="news"
+                    checked={blog_category === "news"}
+                    onChange={(e) => setCat(e.target.value)}
+                  />
+                  <label>News</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="cat"
+                    value="other"
+                    id="other"
+                    checked={blog_category === "other"}
+                    onChange={(e) => setCat(e.target.value)}
+                  />
+                  <label>Other</label>
                 </div>
               </div>
             </div>

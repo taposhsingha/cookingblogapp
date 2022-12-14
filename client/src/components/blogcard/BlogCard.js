@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Blog = ({ blog }) => {
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent;
+  };
   return (
     <div className="bg-white shadow-lg  rounded-md">
       <div className="bg-gray-100 rounded-md w-[500px] ">
@@ -23,7 +27,7 @@ const Blog = ({ blog }) => {
               {blog.blog_name}
             </h1>
             <div className="flex">
-              <h1 className="line-clamp-3">{blog.blog_desc}</h1>
+              <h1 className="line-clamp-3">{getText(blog.blog_desc)}</h1>
             </div>
             <div className="flex justify-between">
               <h1>{blog.blog_author}</h1>
