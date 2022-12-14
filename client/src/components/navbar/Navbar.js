@@ -37,15 +37,6 @@ const Navbar = () => {
           </p>
         </div>
         <div className="space-x-5 mt-7">
-          <input
-            type="text"
-            className="border-2  border-gray-400 p-2 outline-none rounded-md"
-            placeholder="search for recipes..."
-          />
-          <button className="bt-style bg-purple-500 hover:bg-purple-700">
-            Search
-          </button>
-
           <button
             className="bt-style bg-blue-500 hover:bg-blue-700"
             onClick={navigatetoregister}

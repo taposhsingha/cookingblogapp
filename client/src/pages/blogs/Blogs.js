@@ -34,11 +34,14 @@ const Blogs = () => {
       </div>
       <div className="flex justify-center">
         <div className="w-10/12 flex space-x-6">
+          <Link className="bt-style bg-blue-600 hover:bg-blue-300" to="/blogs">
+            <h2>All</h2>
+          </Link>
           <Link
             className="bt-style bg-blue-600 hover:bg-blue-300"
-            to="/blogs/?cat=art"
+            to="/blogs/?cat=savory"
           >
-            <h2>Art</h2>
+            <h2>Savory</h2>
           </Link>
           <Link
             className="bt-style bg-blue-600 hover:bg-blue-300"
