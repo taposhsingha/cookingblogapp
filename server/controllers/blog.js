@@ -85,6 +85,7 @@ export const updateBlog = (req, res) => {
 
     db.query(q, [...values, blogId, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
+      console.log(res);
       return res.json("Post has been updated.");
     });
   });

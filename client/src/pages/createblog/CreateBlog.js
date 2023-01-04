@@ -14,6 +14,8 @@ const CreateBlog = () => {
   const [blog_img, setBlog_img] = useState(state?.blog_img || "");
   const [blog_category, setCat] = useState(state?.blog_category || "");
 
+  console.log(state);
+
   const handleCLick = async (e) => {
     e.preventDefault();
 
@@ -23,9 +25,9 @@ const CreateBlog = () => {
             `http://localhost:8800/api/blogs/${state.blog_id}`,
             {
               blog_name,
-              blog_desc: blog_desc,
-              blog_category,
+              blog_desc,
               blog_img,
+              blog_category,
             },
             {
               withCredentials: true,
@@ -46,7 +48,7 @@ const CreateBlog = () => {
               credentials: "include",
             }
           );
-      navigate("/");
+      navigate("/blogs");
     } catch (err) {
       console.log(err);
     }
