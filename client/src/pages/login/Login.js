@@ -74,9 +74,6 @@ const Login = () => {
                   >
                     Login
                   </button>
-                  <button className="bt-style bg-blue-500 hover:bg-blue-700">
-                    Forgot Password ?
-                  </button>
                 </div>
               </div>
             </div>
